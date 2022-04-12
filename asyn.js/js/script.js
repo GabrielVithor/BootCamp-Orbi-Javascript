@@ -1,10 +1,26 @@
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon-form/";
-const CAT_BTN =document.getElementById('change-pokemon');
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
+const POKEMON_BTN =document.getElementById('change-pokemon');
 
+const Pokemon = async() =>{
+    const data = await fetch(BASE_URL);
+    const json = await data.json();
+    return json.count
+}
 
 const getPokemon = async()=>{
     try{
-        const data = await fetch(BASE_URL+Math.floor(Math.random()*200));
+        const count = parseInt(await Pokemon());
+        let value = Math.floor(Math.random()*count);
+
+        //Verificação de id : necessario pois os ids desta api não segue uma ordem crescente perfeita
+        while(value > 898 && value < 1000){
+            value = Math.floor(Math.random()*count);
+        }
+        if(value >= 1001){
+            value = value +9000;
+        }
+
+        const data = await fetch(BASE_URL+value);
         const json = await data.json();
         return json.sprites.front_default;
     }
@@ -17,8 +33,8 @@ const getPokemon = async()=>{
 
 const loadImg = async()=>{
     try{
-        const CAT_IMG = document.getElementById("pokemon");
-        CAT_IMG.src = await getPokemon();
+        const POKEMON_IMG = document.getElementById("pokemon");
+        POKEMON_IMG.src = await getPokemon();
     }catch(e){
         console.log("Error on loadImg");
         console.log(e.message)
@@ -26,5 +42,5 @@ const loadImg = async()=>{
    
 }
 loadImg();
-CAT_BTN.addEventListener('click',loadImg);
+POKEMON_BTN.addEventListener('click',loadImg);
 
