@@ -9,7 +9,7 @@ const Pokemon = async() =>{
 
 const getPokemon = async()=>{
     try{
-        const count = parseInt(await Pokemon());
+        const count = parseInt(await Pokemon()) + 1000-898;
         let value = Math.floor(Math.random()*count);
 
         //Verificação de id : necessario pois os ids desta api não segue uma ordem crescente perfeita
