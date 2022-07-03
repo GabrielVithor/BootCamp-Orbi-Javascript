@@ -3,7 +3,7 @@ function filterPares(arr){
 }
 
 function callback(item){
-    return item %2 !== 0;
+    return item %2 === 0;
 }
 
 const nums =[1,2,3,4,5,6,7];
