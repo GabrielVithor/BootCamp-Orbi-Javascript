@@ -22,4 +22,4 @@ function testeErro(arr, num) {
     }
 }
 
-console.log(testeErro([1],1));
+console.log(testeErro([1,2],2));
