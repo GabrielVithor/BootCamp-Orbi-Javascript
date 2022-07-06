@@ -5,7 +5,7 @@ body {
 	color: #4e545c;
 	margin: 0;
 	font-family: 'Quicksand';
-    transition: 500ms;
+    transition: 1s;
 }
 
 body.dark-mode {
@@ -31,7 +31,7 @@ footer {
 	bottom: 0;
 	text-align: center;
 	font-weight: 400;
-    transition: 500ms;
+    transition: 1s;
 }
 
 footer.dark-mode {
@@ -47,7 +47,7 @@ button {
 	border: none;
 	background-color: #4e545c;
 	color: #e5e8e8;
-	transition: all 0.5s linear;
+	transition: all 1s linear;
 }
 
 button:hover {
